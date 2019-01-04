@@ -3,7 +3,7 @@
 #
 ftp_ip=ftp.wuetherich.com
 ftp_port=21
-target_dir=slizaa-opencypher-xtext
+target_dir=opencypher-xtext
 
 #
 for i in `curl -s -l ftp://"$user":"$password"@"$ftp_ip/$target_dir" | grep .jar`; do

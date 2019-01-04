@@ -1,0 +1,33 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: io.codekontor.opencypher.xtext
+Bundle-Vendor: Code-Kontor GmbH (https://www.code-kontor.io)
+Bundle-Version: 9.12.0.qualifier
+Bundle-SymbolicName: io.codekontor.opencypher.xtext; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib,
+ org.antlr.runtime,
+ org.eclipse.xtext.util,
+ org.eclipse.xtend.lib,
+ org.eclipse.emf.common
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: io.codekontor.opencypher.xtext,
+ io.codekontor.opencypher.xtext.formatting2,
+ io.codekontor.opencypher.xtext.generator,
+ io.codekontor.opencypher.xtext.openCypher,
+ io.codekontor.opencypher.xtext.openCypher.impl,
+ io.codekontor.opencypher.xtext.openCypher.util,
+ io.codekontor.opencypher.xtext.parser.antlr,
+ io.codekontor.opencypher.xtext.parser.antlr.internal,
+ io.codekontor.opencypher.xtext.parser.antlr.lexer,
+ io.codekontor.opencypher.xtext.scoping,
+ io.codekontor.opencypher.xtext.serializer,
+ io.codekontor.opencypher.xtext.services,
+ io.codekontor.opencypher.xtext.spi,
+ io.codekontor.opencypher.xtext.util,
+ io.codekontor.opencypher.xtext.validation
+Import-Package: org.apache.log4j

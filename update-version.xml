@@ -34,8 +34,8 @@
 
 		<!-- MANIFEST.MF - Require-Bundle -->
 		<replaceregexp>
-			<regexp pattern="org.slizaa.([^;]*);bundle-version=&quot;${old.pde.requirebundle.version}&quot;;" />
-			<substitution expression="org.slizaa.\1;bundle-version=&quot;${new.pde.requirebundle.version}&quot;;" />
+			<regexp pattern="io.codekontor.([^;]*);bundle-version=&quot;${old.pde.requirebundle.version}&quot;;" />
+			<substitution expression="io.codekontor.\1;bundle-version=&quot;${new.pde.requirebundle.version}&quot;;" />
 			<fileset dir=".">
 				<include name="**/META-INF/MANIFEST.MF" />
 			</fileset>
@@ -46,7 +46,7 @@
 			<regexp pattern="version=&quot;${old.pde.version}&quot;>" />
 			<substitution expression="version=&quot;${new.pde.version}&quot;>" />
 			<fileset dir=".">
-				<include name="releng/org.slizaa.neo4j.opencypher.feature/feature.xml" />
+				<include name="releng/io.codekontor.opencypher.xtext.feature/feature.xml" />
 			</fileset>
 		</replaceregexp>
 

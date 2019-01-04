@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/io.codekontor.opencypher.xtext.feature_0.0.0.jar" id="io.codekontor.opencypher.xtext.feature" version="0.0.0">
+      <category name="io.codekontor.opencypher.xtext.category"/>
+   </feature>
+   <category-def name="io.codekontor.opencypher.xtext.category" label="Xtext openCypher implementation"/>
+</site>
