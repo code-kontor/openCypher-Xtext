@@ -702,15 +702,42 @@ UnaryAddOrSubtractExpression returns Expression:
 
 StringListNullOperatorExpression returns Expression:
 /*
- * oC_StringListNullOperatorExpression : oC_PropertyOrLabelsExpression ( ( SP? '[' oC_Expression ']' ) | ( SP? '[' oC_Expression? '..' oC_Expression? ']' ) | ( ( oC_RegularExpression | ( SP IN ) | ( SP STARTS SP WITH ) | ( SP ENDS SP WITH ) | ( SP CONTAINS ) ) SP? oC_PropertyOrLabelsExpression ) | ( SP IS SP NULL ) | ( SP IS SP NOT SP NULL ) )* ;
+ * oC_StringListNullOperatorExpression : oC_PropertyOrLabelsExpression ( oC_StringOperatorExpression | oC_ListOperatorExpression | oC_NullOperatorExpression )* ;
  */
-	PropertyOrLabelsExpression (({IndexLookupExpression.left=current} '[' expression=Expression ']') |
-	({IndexRangeExpression.left=current} '[' (lower=Expression)? '..' (upper=Expression)? ']') |
-	({RegExpMatchingExpression.left=current} '=~' right=PropertyOrLabelsExpression) |
-	({InCollectionExpression.left=current} 'IN' right=PropertyOrLabelsExpression) | ({StartsWithExpression.left=current}
-	'STARTS' 'WITH' right=PropertyOrLabelsExpression) | ({EndsWithExpression.left=current} 'ENDS' 'WITH'
-	right=PropertyOrLabelsExpression) | ({ContainsExpression.left=current} 'CONTAINS' right=PropertyOrLabelsExpression) |
-	({IsNullExpression.left=current} 'IS' 'NULL') | ({IsNotNullExpression.left=current} 'IS' 'NOT' 'NULL'))*;
+	PropertyOrLabelsExpression ( {StringListNullOperatorExpression.left=current } expressions+=( StringOperatorExpression | ListOperatorExpression | NullOperatorExpression) )*;
+
+ListOperatorExpression returns Expression:
+/*
+ * oC_ListOperatorExpression : ( SP? '[' oC_Expression ']' )
+ *                           | ( SP? '[' oC_Expression? '..' oC_Expression? ']' )
+ *                           ; 
+ */	
+  	( {IndexLookupExpression} '[' expression=Expression ']') |
+	( {IndexRangeExpression} '[' (lower=Expression)? '..' (upper=Expression)? ']')
+;
+	
+StringOperatorExpression returns Expression:
+/*
+ * oC_StringOperatorExpression : ( oC_RegularExpression | ( SP IN ) | ( SP STARTS SP WITH ) | ( SP ENDS SP WITH ) | ( SP CONTAINS ) ) SP? oC_PropertyOrLabelsExpression ; 
+ */
+	( ( {RegExpMatchingExpression} '=~' ) |
+	  ( {InCollectionExpression} 'IN' ) | 
+	  ( {StartsWithExpression} 'STARTS' 'WITH' ) | 
+	  ( {EndsWithExpression} 'ENDS' 'WITH' ) |
+	  ( {ContainsExpression} 'CONTAINS' ) )
+	right=PropertyOrLabelsExpression 
+;
+
+NullOperatorExpression returns Expression:
+/*
+ * oC_NullOperatorExpression : ( SP IS SP NULL )
+ *                           | ( SP IS SP NOT SP NULL )
+ *                           ;
+ */	
+	( {IsNullExpression} 'IS' 'NULL') | 
+	( {IsNotNullExpression} 'IS' 'NOT' 'NULL')	
+;
+
 
 PropertyOrLabelsExpression returns Expression:
 /*
