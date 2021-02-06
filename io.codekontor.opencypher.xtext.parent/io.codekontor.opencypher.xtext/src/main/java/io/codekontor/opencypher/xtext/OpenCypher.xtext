@@ -7,7 +7,8 @@ Cypher:
 /*
  * oC_Cypher : SP? oC_QueryOptions oC_Statement ( SP? ';' )? SP? EOF ;
  */
-	{Cypher} queryOptions=QueryOptions statement=Statement ';'?;
+//	{Cypher} queryOptions=QueryOptions statement=Statement ';'?;
+{Cypher} queryOptions=QueryOptions statements+=Statement* ';'?;
 
 QueryOptions:
 /*
@@ -374,19 +375,19 @@ With:
 /*
  * oC_With : WITH ( SP? DISTINCT )? SP oC_ReturnBody ( SP? oC_Where )? ;
  */
-	'WITH' distint?='DISTINCT'? returnBody=ReturnBody where=Where?;
+	'WITH' returnBody=ReturnBody where=Where?;
 
 Return:
 /*
  * oC_Return : RETURN ( SP? DISTINCT )? SP oC_ReturnBody ;
  */
-	(return='RETURN' distinct?='DISTINCT'? body=ReturnBody);
+	(return='RETURN'  body=ReturnBody);
 
 ReturnBody:
 /*
  * oC_ReturnBody : oC_ReturnItems ( SP oC_Order )? ( SP oC_Skip )? ( SP oC_Limit )? ;
  */
-	returnItems=ReturnItems (order=Order)? (skip=Skip)? (limit=Limit)?;
+	distinct?='DISTINCT'? returnItems=ReturnItems (order=Order)? (skip=Skip)? (limit=Limit)?;
 
 ReturnItems:
 /*

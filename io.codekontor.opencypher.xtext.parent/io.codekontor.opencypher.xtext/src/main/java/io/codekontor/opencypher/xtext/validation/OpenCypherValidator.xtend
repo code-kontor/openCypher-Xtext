@@ -13,6 +13,9 @@ import io.codekontor.opencypher.xtext.openCypher.Parameter
 import io.codekontor.opencypher.xtext.openCypher.RangeLiteral
 import io.codekontor.opencypher.xtext.openCypher.Return
 import io.codekontor.opencypher.xtext.openCypher.VersionNumber
+import io.codekontor.opencypher.xtext.openCypher.Cypher
+import com.google.inject.name.Named
+import com.google.inject.Inject
 
 /**
  * This class contains custom validation rules. 
@@ -32,9 +35,29 @@ class OpenCypherValidator extends AbstractOpenCypherValidator {
 
 	/* - */
 	public static val INVALID_DECIMAL_INTEGER_FORMAT = 'invalidDecimalInteger'
+	
+		/* - */
+	public static val INVALID_STATEMENT_COUNT = 'invalidStatementCount'
 
 	/* - */
 	public static val RETURN_NOT_AT_THE_END = 'returnNotAtTheEnd'
+	
+	@Inject(optional=true)
+	@Named("opencypher.allowMultipleStatements")
+	private boolean allowMultipleStatements = false;
+	
+	@Check
+	def checkCypherFormat(Cypher cypher) {
+		
+		if (allowMultipleStatements) {
+			return
+		}
+		
+		if (cypher.statements.size != 1) {
+				error('There must be exactly one statement.',
+				OpenCypherPackage.eINSTANCE.cypher_Statements, INVALID_STATEMENT_COUNT)
+		}
+	}
 
 	@Check
 	def checkLegacyParameterFormat(LegacyParameter legacyParameter) {

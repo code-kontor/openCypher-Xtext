@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>io.codekontor.opencypher.xtext</groupId>
 		<artifactId>io.codekontor.opencypher.xtext.parent</artifactId>
-		<version>9.12.0-SNAPSHOT</version>
+		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 	<artifactId>io.codekontor.opencypher.xtext.ide</artifactId>
 	<packaging>jar</packaging>
@@ -18,7 +18,7 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>build-helper-maven-plugin</artifactId>
-				<version>1.9.1</version>
+				<version>3.0.0</version>
 				<executions>
 					<execution>
 						<id>add-source</id>
@@ -47,7 +47,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-shade-plugin</artifactId>
-				<version>3.0.0</version>
+				<version>3.2.1</version>
 				<configuration>
 					<transformers>
 						<transformer
@@ -74,7 +74,6 @@
 								<exclude>about.*</exclude>
 								<exclude>about_files/*</exclude>
 								<exclude>plugin.xml</exclude>
-								<exclude>modeling32.png</exclude>
 								<exclude>systembundle.properties</exclude>
 								<exclude>profile.list</exclude>
 								<exclude>**/*._trace</exclude>

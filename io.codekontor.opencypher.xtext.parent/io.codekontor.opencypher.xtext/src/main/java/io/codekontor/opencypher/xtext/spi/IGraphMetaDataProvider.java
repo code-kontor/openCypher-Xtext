@@ -1,6 +1,7 @@
 package io.codekontor.opencypher.xtext.spi;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -33,4 +34,12 @@ public interface IGraphMetaDataProvider {
    * @return
    */
   List<String> getPropertyKeys();
+  
+  /**
+   * <p>
+   * </p>
+   *
+   * @return
+   */
+  Map<String, String> getFunctions();
 }
