@@ -1,10 +1,65 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<!--
+
+    openCypher Xtext parent POM - Slizaa Static Software Analysis Tools
+    Copyright © ${year} Code-Kontor GmbH and others (slizaa@codekontor.io)
+
+    This program and the accompanying materials are made available under the
+    terms of the Eclipse Public License 2.0 which is available at
+    http://www.eclipse.org/legal/epl-2.0.
+
+    SPDX-License-Identifier: EPL-2.0
+
+    Contributors:
+     Code-Kontor GmbH - initial API and implementation
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	
 	<groupId>io.codekontor.opencypher.xtext</groupId>
 	<version>1.0.0-SNAPSHOT</version>
 	<artifactId>io.codekontor.opencypher.xtext.parent</artifactId>
 	<packaging>pom</packaging>
+
+	<name>openCypher Xtext parent POM</name>
+	<description>Slizaa Static Software Analysis Tools</description>
+	<url>http://www.slizaa.org</url>
+	<inceptionYear>2019</inceptionYear>
+
+	<licenses>
+		<license>
+			<name>Eclipse Public License - v 2.0</name>
+			<url>https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html</url>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<id>wuetherich</id>
+			<name>Gerd Wuetherich</name>
+			<email>gerd.wuetherich@codekontor.io</email>
+			<url>http://www.codekontor.io</url>
+		</developer>
+	</developers>
+
+	<scm>
+		<connection>scm:git:git://github.com/code-kontor/openCypher-Xtext.git</connection>
+		<developerConnection>git@github.com:code-kontor/openCypher-Xtext.git</developerConnection>
+		<url>https://github.com/code-kontor/openCypher-Xtext</url>
+	</scm>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
 
 	<properties>
 		<xtextVersion>2.21.0</xtextVersion>
@@ -12,12 +67,14 @@
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
 	</properties>
+	
 	<modules>
 		<module>io.codekontor.opencypher.xtext.api</module>
 		<module>io.codekontor.opencypher.xtext</module>
 		<module>io.codekontor.opencypher.xtext.ide</module>
 		<module>io.codekontor.opencypher.xtext.uber</module>
 	</modules>
+	
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -29,9 +86,12 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+	
 	<build>
 		<pluginManagement>
 			<plugins>
+			
+				<!-- xtend generator -->
 				<plugin>
 					<groupId>org.eclipse.xtend</groupId>
 					<artifactId>xtend-maven-plugin</artifactId>
@@ -81,6 +141,81 @@
 						<useSystemClassLoader>false</useSystemClassLoader>
 					</configuration>
 				</plugin>
+
+				<!-- license-maven-plugin -->
+				<plugin>
+					<groupId>com.mycila</groupId>
+					<artifactId>license-maven-plugin</artifactId>
+					<version>3.0</version>
+					<configuration>
+						<header>EPL-2-0-header.txt</header>
+						<properties>
+							<owner>Code-Kontor GmbH and others</owner>
+							<email>slizaa@codekontor.io</email>
+						</properties>
+						<excludes>
+							<exclude>LICENSE.txt</exclude>
+							<exclude>src/main/resources/banner.txt</exclude>
+							<exclude>**/application-dev.properties</exclude>
+							<exclude>**/*.asciidoc</exclude>
+							<exclude>**/*.log</exclude>
+							<exclude>**/.env.development</exclude>
+							<exclude>**/yarn.lock</exclude>
+							<exclude>**/*.genmodel</exclude>
+							<exclude>**/*.ecore</exclude>
+							<exclude>**/bnd.bnd</exclude>
+							<exclude>**/*.cypher</exclude>
+							<exclude>**/*.graphqls</exclude>
+						</excludes>
+						<mapping>
+							<tsx>SLASHSTAR_STYLE</tsx>
+							<ts>SLASHSTAR_STYLE</ts>
+							<xtend>SLASHSTAR_STYLE</xtend>
+						</mapping>
+					</configuration>
+					<executions>
+						<execution>
+							<id>checkLicenseHeader</id>
+							<phase>validate</phase>
+							<goals>
+								<goal>check</goal>
+							</goals>
+						</execution>
+						<execution>
+							<id>formatLicenseHeader</id>
+							<phase>none</phase>
+							<goals>
+								<goal>format</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+
+				<!-- maven-enforcer-plugin -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-enforcer-plugin</artifactId>
+					<version>3.0.0-M2</version>
+					<executions>
+						<execution>
+							<id>enforce-files-exist</id>
+							<goals>
+								<goal>enforce</goal>
+							</goals>
+							<configuration>
+								<rules>
+									<requireFilesExist>
+										<files>
+											<file>${project.basedir}/LICENSE.txt</file>
+										</files>
+									</requireFilesExist>
+								</rules>
+								<fail>true</fail>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
 					<artifactId>lifecycle-mapping</artifactId>

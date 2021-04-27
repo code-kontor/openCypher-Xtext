@@ -7,6 +7,7 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <artifactId>io.codekontor.opencypher.xtext.uber</artifactId>
+  <name>openCypher Xtext Uber JAR</name>
   <build>
     <plugins>
       <plugin>
