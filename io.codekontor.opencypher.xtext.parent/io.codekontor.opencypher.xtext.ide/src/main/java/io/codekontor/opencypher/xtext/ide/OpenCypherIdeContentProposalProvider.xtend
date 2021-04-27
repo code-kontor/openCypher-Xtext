@@ -29,7 +29,7 @@ class OpenCypherIdeContentProposalProvider extends IdeContentProposalProvider {
 	override dispatch createProposals(RuleCall ruleCall, ContentAssistContext context,
 			IIdeContentProposalAcceptor acceptor) {
 				
-		println(ruleCall.rule)
+		// println(ruleCall.rule)
 				
 		switch ruleCall.rule {
 			
