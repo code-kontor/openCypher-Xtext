@@ -1,0 +1,23 @@
+name: Build openCypher-Xtext
+
+on:
+  push:
+    branches:
+      - ls
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.ref }}
+      cancel-in-progress: true
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+      - name: Build with Maven
+        run: mvn --batch-mode --no-transfer-progress install

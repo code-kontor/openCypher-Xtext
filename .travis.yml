@@ -1,5 +1,0 @@
-jdk:
-- oraclejdk8
-
-script:
-- mvn clean install -f pom.xml
