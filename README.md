@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/slizaa/slizaa-opencypher-xtext.svg?branch=master)](https://travis-ci.org/slizaa/slizaa-opencypher-xtext)
+[![Build openCypher-Xtext](https://github.com/code-kontor/openCypher-Xtext/actions/workflows/build.yml/badge.svg)](https://github.com/code-kontor/openCypher-Xtext/actions/workflows/build.yml)
 
 # An Xtext based parser/editor for the cypher query language
 
