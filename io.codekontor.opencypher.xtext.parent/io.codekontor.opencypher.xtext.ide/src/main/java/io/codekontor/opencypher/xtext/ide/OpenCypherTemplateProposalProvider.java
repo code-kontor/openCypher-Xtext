@@ -14,7 +14,7 @@ import org.eclipse.xtext.ide.editor.contentassist.IdeContentProposalPriorities;
 
 import com.google.inject.Inject;
 
-import io.codekontor.opencypher.xtext.spi.IGraphMetaDataProvider;
+import io.codekontor.opencypher.xtext.api.IGraphDatabaseMetaDataProvider;
 
 public class OpenCypherTemplateProposalProvider extends AbstractIdeTemplateProposalProvider {
 
@@ -22,7 +22,7 @@ public class OpenCypherTemplateProposalProvider extends AbstractIdeTemplatePropo
 	private IdeContentProposalPriorities proposalPriorities;
 
 	@Inject
-	private IGraphMetaDataProvider graphMetaDataProvider;
+	private IGraphDatabaseMetaDataProvider graphMetaDataProvider;
 
 	public void createLabelNameRuleProposal(ContentAssistContext context, IIdeContentProposalAcceptor acceptor) {
 		nullSafe(() -> graphMetaDataProvider.getNodeLabels(), label -> acceptProposal(label, label, template(label),

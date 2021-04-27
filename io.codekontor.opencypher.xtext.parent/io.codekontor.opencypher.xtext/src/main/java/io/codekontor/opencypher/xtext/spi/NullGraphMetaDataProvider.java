@@ -4,7 +4,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-public class NullGraphMetaDataProvider implements IGraphMetaDataProvider {
+import io.codekontor.opencypher.xtext.api.IGraphDatabaseMetaDataProvider;
+
+
+public class NullGraphMetaDataProvider implements IGraphDatabaseMetaDataProvider {
 
 	@Override
 	public List<String> getNodeLabels() {

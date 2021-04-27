@@ -13,8 +13,10 @@
 		<maven.compiler.target>11</maven.compiler.target>
 	</properties>
 	<modules>
+		<module>io.codekontor.opencypher.xtext.api</module>
 		<module>io.codekontor.opencypher.xtext</module>
 		<module>io.codekontor.opencypher.xtext.ide</module>
+		<module>io.codekontor.opencypher.xtext.uber</module>
 	</modules>
 	<dependencyManagement>
 		<dependencies>

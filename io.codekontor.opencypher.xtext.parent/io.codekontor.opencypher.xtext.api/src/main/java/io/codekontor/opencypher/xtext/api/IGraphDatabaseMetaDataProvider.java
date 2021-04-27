@@ -1,4 +1,4 @@
-package io.codekontor.opencypher.xtext.spi;
+package io.codekontor.opencypher.xtext.api;
 
 import java.util.List;
 import java.util.Map;
@@ -9,7 +9,7 @@ import java.util.Map;
  *
  * @author Gerd W&uuml;therich (gerd@gerd-wuetherich.de)
  */
-public interface IGraphMetaDataProvider {
+public interface IGraphDatabaseMetaDataProvider {
 
   /**
    * <p>

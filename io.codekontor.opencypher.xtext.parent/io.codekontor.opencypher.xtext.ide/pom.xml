@@ -115,5 +115,10 @@
 			<artifactId>org.eclipse.xtext.xbase.ide</artifactId>
 			<version>${xtextVersion}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.eclipse.lsp4j</groupId>
+			<artifactId>org.eclipse.lsp4j.websocket</artifactId>
+			<version>0.9.0</version>
+		</dependency>
 	</dependencies>
 </project>
