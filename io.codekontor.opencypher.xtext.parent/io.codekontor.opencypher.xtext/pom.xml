@@ -1,29 +1,20 @@
-<!--
-
-    openCypher Xtext - Slizaa Static Software Analysis Tools
-    Copyright © ${year} Code-Kontor GmbH and others (slizaa@codekontor.io)
-
-    This program and the accompanying materials are made available under the
-    terms of the Eclipse Public License 2.0 which is available at
-    http://www.eclipse.org/legal/epl-2.0.
-
-    SPDX-License-Identifier: EPL-2.0
-
-    Contributors:
-     Code-Kontor GmbH - initial API and implementation
-
--->
+<!-- openCypher Xtext - Slizaa Static Software Analysis Tools Copyright © 
+	${year} Code-Kontor GmbH and others (slizaa@codekontor.io) This program and 
+	the accompanying materials are made available under the terms of the Eclipse 
+	Public License 2.0 which is available at http://www.eclipse.org/legal/epl-2.0. 
+	SPDX-License-Identifier: EPL-2.0 Contributors: Code-Kontor GmbH - initial 
+	API and implementation -->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	
+
 	<parent>
 		<groupId>io.codekontor.opencypher.xtext</groupId>
 		<artifactId>io.codekontor.opencypher.xtext.parent</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
-	
+
 	<name>openCypher Xtext</name>
 	<artifactId>io.codekontor.opencypher.xtext</artifactId>
 	<packaging>jar</packaging>
@@ -144,6 +135,39 @@
 						</configuration>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.xtend</groupId>
+				<artifactId>xtend-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.22.1</version>
+				<executions>
+					<execution>
+						<id>test</id>
+						<phase>test</phase>
+						<configuration>
+							<testSourceDirectory>src,src-gen,xtend-gen,testlang-src,testlang-src-gen</testSourceDirectory>
+							<testClassesDirectory>target/classes</testClassesDirectory>
+							<failIfNoTests>false</failIfNoTests>
+							<includes>
+								<include>**/*Test.java</include>
+							</includes>
+						</configuration>
+						<goals>
+							<goal>test</goal>
+						</goals>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.maven.surefire</groupId>
+						<artifactId>surefire-junit47</artifactId>
+						<version>2.22.1</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>

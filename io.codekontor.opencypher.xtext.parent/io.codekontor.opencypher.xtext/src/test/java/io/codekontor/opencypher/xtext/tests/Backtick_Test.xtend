@@ -14,7 +14,9 @@
 package io.codekontor.opencypher.xtext.tests
 
 import org.junit.Test
+import org.junit.Ignore
 
+@Ignore
 class Backtick_Test extends AbstractCypherTest {
 
 	@Test

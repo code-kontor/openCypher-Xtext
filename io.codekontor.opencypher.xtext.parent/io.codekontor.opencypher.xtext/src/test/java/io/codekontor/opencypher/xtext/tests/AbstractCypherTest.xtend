@@ -35,7 +35,7 @@ abstract class AbstractCypherTest {
 	def Cypher test(String cypher) {
 		val model = cypher.parse
 		Assert.assertNotNull(model)
-		println(dump(model, ""));
+		// println(dump(model, ""));
 		model.assertNoErrors
 		return model
 	}
@@ -44,7 +44,7 @@ abstract class AbstractCypherTest {
 		String... messageParts) {
 		val model = cypher.parse
 		Assert.assertNotNull(model)
-		println(dump(model, ""));
+		// println(dump(model, ""));
 		model.assertError(objectType, code, offset, length, messageParts);
 		return model
 	}
