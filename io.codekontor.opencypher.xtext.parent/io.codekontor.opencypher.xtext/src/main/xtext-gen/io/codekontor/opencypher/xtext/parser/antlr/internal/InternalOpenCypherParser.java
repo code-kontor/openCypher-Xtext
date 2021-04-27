@@ -554,7 +554,7 @@ public class InternalOpenCypherParser extends AbstractInternalAntlrParser {
             	      										if (current==null) {
             	      											current = createModelElement(grammarAccess.getQueryOptionsRule());
             	      										}
-            	      										setWithLastConsumed(current, "explain", true, "EXPLAIN");
+            	      										setWithLastConsumed(current, "explain", lv_explain_2_0 != null, "EXPLAIN");
             	      									
             	    }
 
@@ -614,7 +614,7 @@ public class InternalOpenCypherParser extends AbstractInternalAntlrParser {
             	      										if (current==null) {
             	      											current = createModelElement(grammarAccess.getQueryOptionsRule());
             	      										}
-            	      										setWithLastConsumed(current, "profile", true, "PROFILE");
+            	      										setWithLastConsumed(current, "profile", lv_profile_3_0 != null, "PROFILE");
             	      									
             	    }
 
@@ -2486,7 +2486,7 @@ public class InternalOpenCypherParser extends AbstractInternalAntlrParser {
                       					if (current==null) {
                       						current = createModelElement(grammarAccess.getUnionRule());
                       					}
-                      					setWithLastConsumed(current, "all", true, "ALL");
+                      					setWithLastConsumed(current, "all", lv_all_1_0 != null, "ALL");
                       				
                     }
 
@@ -6242,7 +6242,7 @@ public class InternalOpenCypherParser extends AbstractInternalAntlrParser {
                       					set(
                       						current,
                       						"incoming",
-                      						true,
+                      						lv_incoming_2_0 != null,
                       						"io.codekontor.opencypher.xtext.OpenCypher.LeftArrowHead");
                       					afterParserOrEnumRuleCall();
                       				
@@ -6410,7 +6410,7 @@ public class InternalOpenCypherParser extends AbstractInternalAntlrParser {
                       					set(
                       						current,
                       						"outgoing",
-                      						true,
+                      						lv_outgoing_9_0 != null,
                       						"io.codekontor.opencypher.xtext.OpenCypher.RightArrowHead");
                       					afterParserOrEnumRuleCall();
                       				
@@ -6590,7 +6590,7 @@ public class InternalOpenCypherParser extends AbstractInternalAntlrParser {
                       					set(
                       						current,
                       						"withHeaders",
-                      						true,
+                      						lv_withHeaders_3_0 != null,
                       						"io.codekontor.opencypher.xtext.OpenCypher.LoadCSVWithHeaders");
                       					afterParserOrEnumRuleCall();
                       				
@@ -6947,7 +6947,7 @@ public class InternalOpenCypherParser extends AbstractInternalAntlrParser {
                       					if (current==null) {
                       						current = createModelElement(grammarAccess.getMatchRule());
                       					}
-                      					setWithLastConsumed(current, "optional", true, "OPTIONAL");
+                      					setWithLastConsumed(current, "optional", lv_optional_0_0 != null, "OPTIONAL");
                       				
                     }
 
@@ -7764,7 +7764,7 @@ public class InternalOpenCypherParser extends AbstractInternalAntlrParser {
                       					if (current==null) {
                       						current = createModelElement(grammarAccess.getCreateRule());
                       					}
-                      					setWithLastConsumed(current, "uniqueContraint", true, "UNIQUE");
+                      					setWithLastConsumed(current, "uniqueContraint", lv_uniqueContraint_1_0 != null, "UNIQUE");
                       				
                     }
 
@@ -8550,7 +8550,7 @@ public class InternalOpenCypherParser extends AbstractInternalAntlrParser {
                       					if (current==null) {
                       						current = createModelElement(grammarAccess.getDeleteRule());
                       					}
-                      					setWithLastConsumed(current, "detach", true, "DETACH");
+                      					setWithLastConsumed(current, "detach", lv_detach_0_0 != null, "DETACH");
                       				
                     }
 
@@ -10614,7 +10614,7 @@ public class InternalOpenCypherParser extends AbstractInternalAntlrParser {
                       					if (current==null) {
                       						current = createModelElement(grammarAccess.getReturnBodyRule());
                       					}
-                      					setWithLastConsumed(current, "distinct", true, "DISTINCT");
+                      					setWithLastConsumed(current, "distinct", lv_distinct_0_0 != null, "DISTINCT");
                       				
                     }
 
@@ -16442,7 +16442,7 @@ public class InternalOpenCypherParser extends AbstractInternalAntlrParser {
                       						set(
                       							current,
                       							"incoming",
-                      							true,
+                      							lv_incoming_1_0 != null,
                       							"io.codekontor.opencypher.xtext.OpenCypher.LeftArrowHead");
                       						afterParserOrEnumRuleCall();
                       					
@@ -16574,7 +16574,7 @@ public class InternalOpenCypherParser extends AbstractInternalAntlrParser {
                       						set(
                       							current,
                       							"outgoing",
-                      							true,
+                      							lv_outgoing_5_0 != null,
                       							"io.codekontor.opencypher.xtext.OpenCypher.RightArrowHead");
                       						afterParserOrEnumRuleCall();
                       					
@@ -16777,7 +16777,7 @@ public class InternalOpenCypherParser extends AbstractInternalAntlrParser {
                       					if (current==null) {
                       						current = createModelElement(grammarAccess.getRelationshipDetailRule());
                       					}
-                      					setWithLastConsumed(current, "optional", true, "?");
+                      					setWithLastConsumed(current, "optional", lv_optional_3_0 != null, "?");
                       				
                     }
 
@@ -17838,7 +17838,7 @@ public class InternalOpenCypherParser extends AbstractInternalAntlrParser {
                               							if (current==null) {
                               								current = createModelElement(grammarAccess.getRangeLiteralRule());
                               							}
-                              							setWithLastConsumed(current, "variableLength", true, "..");
+                              							setWithLastConsumed(current, "variableLength", lv_variableLength_3_0 != null, "..");
                               						
                             }
 
@@ -24730,7 +24730,7 @@ public class InternalOpenCypherParser extends AbstractInternalAntlrParser {
                       					if (current==null) {
                       						current = createModelElement(grammarAccess.getFunctionInvocationRule());
                       					}
-                      					setWithLastConsumed(current, "distinct", true, "DISTINCT");
+                      					setWithLastConsumed(current, "distinct", lv_distinct_2_0 != null, "DISTINCT");
                       				
                     }
 
